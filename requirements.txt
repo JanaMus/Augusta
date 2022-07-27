@@ -1,7 +1,6 @@
 pandas
 numpy
 sklearn
-math
 bioinfokit
 Bio
 io
