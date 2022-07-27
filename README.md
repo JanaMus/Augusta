@@ -10,7 +10,9 @@ pip install Augusta
 ```
 From GitHub:
 ```
-git clone https://github.com/JanaMus/Augusta
+git clone https://github.com/JanaMus/Augusta.git
+cd Augusta
+python setup.py install
 ```
 
 ## Usage
