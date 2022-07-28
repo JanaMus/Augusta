@@ -21,7 +21,6 @@ def RNASeq_to_GRN(count_table_input, promoter_length = 1000, genbank_file_input 
       export_GRN(GRNdb)
       return GRNdb
    elif genbank_file_input is None:
-      count_table = import_CountTable(count_table_input)
       if normalization_type:
          print('Count table normalization not available - GenBank missing; skipped.')
       GRNmi, count_table_differences = RNASeq_to_GRNmi(count_table)

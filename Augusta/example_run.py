@@ -12,8 +12,12 @@ genbank_file_input = parent_directory + '\data\Cbeijerinckii.gb'
 normalization_type = 'RPKM'
 
 ## run:
-GRN = RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type) # all data
+import time
+start = time.time()
+#GRN = RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type) # all data
 #GRN = RNASeq_to_GRN(count_table_input) # only indispesable data
+end = time.time()
+print(end - start)
 
 #GRN_input = 'output\GRN.csv'
 #GRN_to_BN(GRN_input, promoter_length, genbank_file_input, add_dbs_info = 1) # all data
