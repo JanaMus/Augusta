@@ -14,11 +14,12 @@ def find_motifs(initial_GRN, gene_promoters):
     verified_GRN_np = np.zeros((np.shape(initial_GRN)[0], np.shape(initial_GRN)[1]), dtype = int)
     verified_GRN = pd.DataFrame(verified_GRN_np, columns=genes, index=genes)
     client = docker.from_env()
+    client.images.pull('memesuite/memesuite:latest')
     sto_file = open('output/discovered_motifs.sto', 'w') # motif sequences in Stockholm format
 
     for r in range (0, np.shape(initial_GRN)[0]):
         if n_of_reg_genes[r] >= 5: # motif search only if TFs regulates at least 5 genes
-            print(f'Motif: {r+1} / {np.shape(initial_GRN)[0]}')
+            #print(f'Motif: {r+1} / {np.shape(initial_GRN)[0]}')
             ofile = open('temporary_coreg_seq.fasta', 'w') # promoter sequences
             prom_no = 1
             coreg_seqs = 0
@@ -75,7 +76,10 @@ def find_motifs(initial_GRN, gene_promoters):
 
                 # MEME Suite output into Stockholm file format
                 motifs_stockholm(genes, r, record, sto_file)
-                shutil.rmtree('meme_out')
+                try:
+                    shutil.rmtree('meme_out')
+                except PermissionError:
+                    pass
             os.remove('temporary_coreg_seq.fasta')
     sto_file.close()
     print('Motifs search done.')

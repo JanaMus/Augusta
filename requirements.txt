@@ -7,7 +7,7 @@ docker
 EcoNameTranslator
 mygene
 omnipath
-requests
+requests>=2.24.0
 bs4
 lxml
 html5lib

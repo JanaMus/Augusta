@@ -30,7 +30,7 @@ def calc_MI(input_matrix, highest_expression):
     # compute MI
     vector_cols = np.arange(1, np.shape(input_matrix)[0])
     for i in range(0, np.shape(input_matrix)[0]):
-        print(f'MI for gene: {i+1} / {np.shape(input_matrix)[0]}')
+        #print(f'MI for gene: {i+1} / {np.shape(input_matrix)[0]}')
         for j in vector_cols:
             if highest_expression.iloc[i, 1] != highest_expression.iloc[j, 1]: # compute MI only if highest expression is in different time points
                 if highest_expression.iloc[i, 1] < highest_expression.iloc[j, 1]: # set direction of edges
