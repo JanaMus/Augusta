@@ -24,6 +24,7 @@ docker
 - promoter length (optional, default: 1000)<br />
 - GenBank file (optional but several parts are skipped if not provided)<br />
 - normalization type (optional, default: None, options: RPKM, CPM, TPM)<br />
+Please note that count table must be in a normalized form in order to infer GRN (using MI computation) correctly.
 
 **Example:**
 ```
@@ -39,6 +40,7 @@ Example data files are available in the data folder.<br />
 - promoter length (optional, default: 1000)<br />
 - GenBank file (optional but several parts are skipped if not provided)<br />
 - normalization type (optional, default: None, options: RPKM, CPM, TPM)<br />
+Please note that count table must be in a normalized form in order to infer GRN (using MI computation) correctly.
 
 **Example:**
 ```
