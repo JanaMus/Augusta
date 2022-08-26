@@ -11,6 +11,5 @@ requests>=2.24.0
 bs4
 lxml
 html5lib
-logging
 networkx==1.11
 ccapi==0.1.0 
