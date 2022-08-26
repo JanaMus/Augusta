@@ -13,8 +13,8 @@ setup(
     packages=find_packages(),
     url='https://github.com/JanaMus/Augusta',
     license='MIT',
-    author='Jana Musilova', 'Karel Sedlar'
-    author_email='musilovajana@vut.cz', 'sedlar@vut.cz'
+    author='Jana Musilova', 'Zdenek Vafek' 'Karel Sedlar'
+    author_email='musilovajana@vut.cz'
     description='Python package for inference of the gene regulatory network and the boolean network using RNA-Seq data.',
     long_description=long_description,
     keywords = ['Computational biology', 'Bioinformatics', 'RNA-Seq', 'mutual information', 'database', 'Boolean network', 'Gene Regulatory network', 'SBML'],
