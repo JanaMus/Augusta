@@ -41,6 +41,7 @@ Generate GRN:
 
 .. code-block:: python
 
+   > python
    >>> import Augusta
    >>> GRN = Augusta.RNASeq_to_GRN(count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 1000, genbank_file_input = 'Ecoli.gb', normalization_type = 'TPM')
 
