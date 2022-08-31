@@ -6,6 +6,7 @@ The lines bellow provides through the installation.
 
 from PyPi / pip
 ^^^^^^^^^^^^^^^^
+
 .. code-block:: python
 
    > pip install Augusta
@@ -13,6 +14,7 @@ from PyPi / pip
 
 from GitHub
 ^^^^^^^^^^^
+
 .. code-block:: python
 
    > git clone https://github.com/JanaMus/Augusta.git
@@ -25,12 +27,14 @@ Augusta uses MEME Suite **Docker** Image to search for motifs.
 Therefore, access to Docker is needed to be set via terminal:
 
 1. create the docker group
+
 .. code-block:: python
 
    > sudo groupadd docker
 
 
 2. add your user to the docker group
+
 .. code-block:: python
 
    > sudo usermod -aG docker $USER
