@@ -22,7 +22,7 @@ docker
 .. code-block:: python
 
    >>> import Augusta
-   >>> RNASeq_to_SBML(count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 500, genbank_file_input = 'Ecoli.gb', normalization_type = 'RPKM')
+   >>> RNASeq_to_SBML(count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 1000, genbank_file_input = 'Ecoli.gb', normalization_type = 'TPM')
 
 
 Example data files are available in the "data" folder.
