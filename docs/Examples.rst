@@ -163,8 +163,9 @@ Below is provided an example of the main function for generating GRN and BN. See
 
 *Note: input files must be in the current directory or full path must be provided.*
 
-.. code-block:: python
+.. code-block:: 
 
+   $ python
    >>> import Augusta
    >>> Augusta.RNASeq_to_BN(count_table_input = 'Cbeijerinckii.csv', promoter_length = 1000, genbank_file_input = 'Cbeijerinckii.gb', normalization_type = 'TPM')
 
