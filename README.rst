@@ -8,7 +8,7 @@ Documentation and tutorials are available at https://augusta.readthedocs.io.
 Quick Guide
 --------
 
-*Installation:*
+**Installation:**
 
 .. code-block::
 
@@ -17,7 +17,7 @@ Quick Guide
 Dependencies:
 docker
 
-*Usage:*
+**Usage:**
 .. code-block:: python
 
    >>> import Augusta
