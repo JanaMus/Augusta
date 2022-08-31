@@ -103,6 +103,15 @@ Usage
 ^^^^^^
 Below is the list of Augusta's functions along with the inputs. See :ref:`Examples` for further description and tutorials.
 
+Import Augusta:
+
+.. code-block:: 
+
+   $ python
+   >>> import Augusta
+   >>> Augusta.RNASeq_to_SBML(count_table_input, promoter_length, genbank_file_input, normalization_type)
+   
+   
 GRN and BN inference using RNA-Seq
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 `RNASeq_to_SBML` is the main function for inferring both networks using RNA-Seq dataset as an input.
@@ -111,7 +120,7 @@ Usage:
 
 .. code-block:: python
 
-   >>> RNASeq_to_SBML(count_table_input, promoter_length, genbank_file_input, normalization_type)
+   >>> Augusta.RNASeq_to_SBML(count_table_input, promoter_length, genbank_file_input, normalization_type)
 
 
 *Note: count_table_input is the only indispensable input, the remaining ones are optional.*
@@ -126,7 +135,7 @@ Usage:
 
 .. code-block:: python
 
-   >>> GRN = RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type)
+   >>> GRN = Augusta.RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type)
 
 *Note: count_table_input is the only indispensable input, the remaining ones are optional.*
 *Not providing GenBank file results in only inferring GRN by computing mutual information. Further steps such as verification and BN inference would be skipped.*
@@ -140,7 +149,7 @@ Usage:
 
 .. code-block:: python
 
-   >>> GRNtoBN(GRN_input, promoter_length, genbank_file_input, add_dbs_info)
+   >>> Augusta.GRNtoBN(GRN_input, promoter_length, genbank_file_input, add_dbs_info)
 
 
 *Note: GRN_input is the only indispensable input, the remaining ones are optional. Not providing GenBank file and/or not setting add_dbs_info only results in a GRN to BN conversion. Cell Collective database would not be searched.*
