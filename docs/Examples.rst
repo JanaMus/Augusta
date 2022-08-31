@@ -39,10 +39,11 @@ Below is provided an example of the functions for generating GRN and for convert
 
 Generate GRN:
 
-.. code-block:: python
+.. code-block::
 
+   $ python
    >>> import Augusta
-   >>> RNASeq_to_GRN(count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 1000, genbank_file_input = 'Ecoli.gb', normalization_type = 'TPM')
+   >>> GRN = Augusta.RNASeq_to_GRN(count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 1000, genbank_file_input = 'Ecoli.gb', normalization_type = 'TPM')
 
    Count table uploaded.
    GenBank uploaded.
@@ -59,11 +60,11 @@ Generate GRN:
 
 The computation should be done in several minutes, depending on the specific machine.
 
-Convert GRN to BN:
+Convert generated GRN to BN:
 
 .. code-block:: python
 
-   >>> GRN_to_BN(GRN_input = 'output/GRN.csv', promoter_length = 1000, genbank_file_input = 'Ecoli.gb', add_dbs_info = 1)
+   >>> Augusta.GRN_to_BN(GRN_input = GRN, promoter_length = 1000, genbank_file_input = 'Ecoli.gb', add_dbs_info = 1)
 
    GRN uploaded.
    GenBank uploaded.
@@ -165,7 +166,7 @@ Below is provided an example of the main function for generating GRN and BN. See
 .. code-block:: python
 
    >>> import Augusta
-   >>> RNASeq_to_BN(count_table_input = 'Cbeijerinckii.csv', promoter_length = 1000, genbank_file_input = 'Cbeijerinckii.gb', normalization_type = 'TPM')
+   >>> Augusta.RNASeq_to_BN(count_table_input = 'Cbeijerinckii.csv', promoter_length = 1000, genbank_file_input = 'Cbeijerinckii.gb', normalization_type = 'TPM')
 
    Count table uploaded.
    GenBank uploaded.
