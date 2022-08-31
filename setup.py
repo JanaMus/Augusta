@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import pathlib
 here = pathlib.Path(__file__).parent.resolve()
-long_description = (here / "README.md").read_text(encoding="utf-8")
+long_description = (here / "README.rst").read_text(encoding="utf-8")
 
 def read_requirements(fname):
     with open(fname, 'r', encoding='utf-8') as file:
