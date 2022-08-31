@@ -41,7 +41,7 @@ Generate GRN:
 
 .. code-block:: python
 
-   $ python
+   > python
    >>> import Augusta
    >>> GRN = Augusta.RNASeq_to_GRN(count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 1000, genbank_file_input = 'Ecoli.gb', normalization_type = 'TPM')
 
@@ -165,7 +165,7 @@ Below is provided an example of the main function for generating GRN and BN. See
 
 .. code-block:: python
 
-   $ python
+   > python
    >>> import Augusta
    >>> Augusta.RNASeq_to_SBML(count_table_input = 'Cbeijerinckii.csv', promoter_length = 1000, genbank_file_input = 'Cbeijerinckii.gb', normalization_type = 'TPM')
 
