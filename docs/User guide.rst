@@ -105,11 +105,10 @@ Below is the list of Augusta's functions along with the inputs. See :ref:`Exampl
 
 Import Augusta:
 
-.. code-block:: pyhon
+.. code-block:: python
 
    > python
    >>> import Augusta
-   >>> Augusta.RNASeq_to_SBML(count_table_input, promoter_length, genbank_file_input, normalization_type)
    
    
 GRN and BN inference using RNA-Seq
