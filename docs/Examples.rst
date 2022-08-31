@@ -39,7 +39,7 @@ Below is provided an example of the functions for generating GRN and for convert
 
 Generate GRN:
 
-.. code-block::
+.. code-block:: python
 
    $ python
    >>> import Augusta
@@ -163,7 +163,7 @@ Below is provided an example of the main function for generating GRN and BN. See
 
 *Note: input files must be in the current directory or full path must be provided.*
 
-.. code-block:: 
+.. code-block:: python
 
    $ python
    >>> import Augusta
