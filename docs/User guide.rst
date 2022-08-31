@@ -105,9 +105,9 @@ Below is the list of Augusta's functions along with the inputs. See :ref:`Exampl
 
 Import Augusta:
 
-.. code-block:: 
+.. code-block:: pyhon
 
-   $ python
+   > python
    >>> import Augusta
    >>> Augusta.RNASeq_to_SBML(count_table_input, promoter_length, genbank_file_input, normalization_type)
    
