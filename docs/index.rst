@@ -23,7 +23,6 @@ ensuring that inaccurate information is not incorporated.
 .. image:: _static/pipeline.png
   :alt: Augusta pipeline
 
-For detailed description check our paper: IN PROCESS.
 
 Contents
 --------
