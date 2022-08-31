@@ -58,6 +58,7 @@ Generate GRN:
    No data searched in interaction databases.
    GRN stored as "GRN.csv".
 
+
 The computation should be done in several minutes, depending on the specific machine.
 
 Convert generated GRN to BN:
@@ -74,7 +75,7 @@ Convert generated GRN to BN:
    No data searched in interaction databases.
    GRN stored as "GRN.csv".
    Boolean network stored as "BN.sbml".
-
+   
 
 The computation should be done in several minutes, depending on the specific machine.
 
@@ -109,6 +110,7 @@ First transcription factor´s motifs in the file (transcription factor is BW2511
    BW25113_0995_1	TAAGCAAGC
    BW25113_0995_8	GGCTGAAAC
    //
+
 
 * Gene Regulatory Network
 
@@ -182,6 +184,7 @@ Below is provided an example of the main function for generating GRN and BN. See
    No data searched in interaction databases.
    GRN stored as "GRN.csv".
    Boolean network stored as "BN.sbml".
+
 
 The computation should be done in approximately two days, depending on the specific machine.
 
