@@ -1,5 +1,5 @@
 import math
-from GRN_MI.preprocessing import *
+from .preprocessing import *
 from sklearn.metrics import mutual_info_score
 
 
