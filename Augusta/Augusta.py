@@ -1,4 +1,4 @@
-from core import *
+from .core import *
 
 def RNASeq_to_GRN(count_table_input, promoter_length = 1000, genbank_file_input = None, normalization_type = None):
    count_table = import_CountTable(count_table_input)  # data import
