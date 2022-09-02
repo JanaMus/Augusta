@@ -1,4 +1,4 @@
-from cno.misc import tools
-from cno.misc.tools import CNOError
+from Augusta.cno.misc import tools
+from Augusta.cno.misc.tools import CNOError
 
 
