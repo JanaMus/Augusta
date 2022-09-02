@@ -15,12 +15,12 @@
 ##############################################################################
 from __future__ import print_function
 
-from cno import CNOError
+#from cno import CNOError
 
-from cno.io.sbml import SBML
-from cno.io.sif import SIF
-from cno.io.cnograph import CNOGraph
-from cno.io.reactions import Reaction, Reactions
+from Augusta.cno.io.sbml import SBML
+from Augusta.cno.io.sif import SIF
+from Augusta.cno.io.cnograph import CNOGraph
+from Augusta.cno.io.reactions import Reaction, Reactions
 
 import bs4
 import lxml
