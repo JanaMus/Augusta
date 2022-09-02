@@ -40,4 +40,4 @@ Therefore, access to Docker is needed to be set via terminal:
    > sudo usermod -aG docker $USER
 
 
-For further information see `docs.docker.com/engine/install/linux-postinstall <https://docs.docker.com/engine/install/linux-postinstall/>`_
+For further information see `docs.docker.com/engine/install/linux-postinstall <https://docs.docker.com/engine/install/linux-postinstall/>`_.
