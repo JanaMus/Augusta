@@ -61,7 +61,7 @@ def get_DBs_data(organism, genes_IDs_gb, taxon, GRN = None):
         allDBs_interactions = pd.concat([signor_interactions, op_interactions, sl_interactions, trrust_interactions])
     except ValueError:
         print('No data searched in interaction databases.')
-        return GRN
+        return GRN, genes_IDs_all
     else:
         interactions_all, interactions_uncertain, interactions_filtered = DBs_filter.filter_interactions(allDBs_interactions, genes_IDs_all)
         export_interactions(interactions_all, interactions_uncertain)
@@ -74,7 +74,7 @@ def get_DBs_data(organism, genes_IDs_gb, taxon, GRN = None):
                 GRNdb = DBs_filter.fill_GRN(GRN, gene_names, interactions_filtered) # add databases interactions to inferred / imported GRN
         else: GRNdb = GRN # no interactions found, input GRN is returned
     export_GRN(GRNdb)
-    return GRNdb
+    return GRNdb, genes_IDs_all
 
 # search Cell Collective database for interactions and logical rules
 def get_CC_data(genes_IDs, GRN):
