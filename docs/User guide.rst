@@ -107,7 +107,7 @@ Import Augusta:
 
 .. code-block:: python
 
-   > python
+   > python3
    >>> import Augusta
    
    
