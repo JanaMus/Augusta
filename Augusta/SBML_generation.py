@@ -1,9 +1,9 @@
-from cno import CNOGraph
+from .cno.io import cnograph
 import numpy as np
 
 ### convert GRN to Boolean netwok in SBML-qual file format
 def GRN_to_SBML(GRN, CC_conditions = {}):
-    c = CNOGraph()
+    c = cnograph.CNOGraph()
     lonely_nodes = []
     for source in GRN.columns: # get column name
         values = GRN[source] # get column values
