@@ -180,6 +180,7 @@ Below is provided an example of the main function for generating GRN and BN. See
    Synonym names search done.
    No data searched in interaction databases.
    GRN stored as "GRN.csv".
+   Cell Collective database search done.
    Boolean network stored as "BN.sbml".
 
 
