@@ -12,7 +12,7 @@ Quick Guide
 
 .. code-block::
 
-   $ pip install Augusta
+   $ pip3 install Augusta
 
 Dependencies:
 docker
@@ -21,7 +21,7 @@ docker
 
 .. code-block:: 
 
-   $ python
+   $ python3
    >>> import Augusta
    
 GRN and BN inference using RNA-Seq:
