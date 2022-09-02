@@ -19,8 +19,8 @@ import csv
 import os
 import re
 
-from cno.io.reactions import Reactions, Reaction
-from cno.misc import CNOError
+from Augusta.cno.io.reactions import Reactions, Reaction
+from Augusta.cno.misc import CNOError
 
 import numpy as np
 
@@ -390,7 +390,7 @@ class SIF(Reactions):
         """
 
         #sif = self.to_cnograph()
-        from cno.io.sbmlqual import SBMLQual
+        from Augusta.cno.io.sbmlqual import SBMLQual
         qual = SBMLQual()
         return qual.to_sbmlqual(self, filename=filename)
 
@@ -402,7 +402,7 @@ class SIF(Reactions):
 
         .. warning:: experimental
         """
-        from cno.io.sbmlqual import SBMLQual
+        from Augusta.cno.io.sbmlqual import SBMLQual
         qual = SBMLQual()
         sif = qual.read_sbmlqual(filename)
         self.clear()
@@ -417,8 +417,8 @@ class SIF(Reactions):
 
     def to_cnograph(self):
         # local import to prevent import cycling
-        from cno.io.cnograph import CNOGraph
-        c = CNOGraph()
+        from Augusta.cno.io import cnograph
+        c = cnograph.CNOGraph()
         for reaction in self.reactions:
             c.add_reaction(reaction)
         return c
