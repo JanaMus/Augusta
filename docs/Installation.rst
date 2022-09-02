@@ -9,7 +9,7 @@ from PyPi / pip
 
 .. code-block:: python
 
-   > pip install Augusta
+   > pip3 install Augusta
 
 
 from GitHub
@@ -19,7 +19,7 @@ from GitHub
 
    > git clone https://github.com/JanaMus/Augusta.git
    > cd Augusta
-   > python setup.py install
+   > python3 setup.py install
 
 
 *Linux non-root user:*
