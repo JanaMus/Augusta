@@ -3,7 +3,7 @@ Augusta
 
 Python package: From RNA-Seq to the Boolean Network through the Gene Regulatory Network
 
-Documentation and tutorials are available at https://augusta.readthedocs.io. 
+Documentation and tutorials are available at _´augusta.readthedocs.io <https://augusta.readthedocs.io>´_
 
 Quick Guide
 ----------------
