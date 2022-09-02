@@ -72,6 +72,7 @@ Convert generated GRN to BN:
    Synonym names search done.
    No data searched in interaction databases.
    GRN stored as "GRN.csv".
+   Cell Collective database search done.
    Boolean network stored as "BN.sbml".
    
 
