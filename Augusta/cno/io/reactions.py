@@ -25,7 +25,7 @@
 from __future__ import print_function
 import re
 
-from cno.misc import CNOError
+from Augusta.cno.misc import CNOError
 
 __all__ = ["Reaction", "Reactions"]
 
