@@ -29,25 +29,25 @@ import matplotlib
 import pylab
 import networkx as nx
 
-from cno.misc.profiler import do_profile
+from Augusta.cno.misc.profiler import do_profile
 
 try:
     import pygraphviz as gv
 except ImportError:
-    print("Warning:: Pygraphviz not found")
+    #print("Warning:: Pygraphviz not found")
     pass
 
 import numpy as np
 from easydev import Logging, TempFile, DevTools
 
 # cellnopt modules
-from cno.io.sif import SIF
-from cno.io.midas import XMIDAS
-from cno.io.reactions import Reaction
-from cno.misc import CNOError
+from Augusta.cno.io.sif import SIF
+from Augusta.cno.io.midas import XMIDAS
+from Augusta.cno.io.reactions import Reaction
+from Augusta.cno.misc import CNOError
 import colormap
 
-from cno.misc.profiler import do_profile
+from Augusta.cno.misc.profiler import do_profile
 __all__ = ["CNOGraph", "CNOGraphAttributes"]
 
 
