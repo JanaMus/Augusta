@@ -23,9 +23,27 @@ docker
 
    $ python
    >>> import Augusta
-   >>> Augusta.RNASeq_to_SBML(count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 1000, genbank_file_input = 'Ecoli.gb', normalization_type = 'TPM')
+   
+GRN and BN inference using RNA-Seq:
+
+.. code-block:: 
+
+   >>> Augusta.RNASeq_to_SBML(count_table_input, promoter_length, genbank_file_input, normalization_type)
+
+GRN inference using RNA-Seq:
+
+.. code-block:: 
+
+   >>> GRN = Augusta.RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type)
 
 
-Example data files are available in the "data" folder.
+BN inference using GRN:
+
+.. code-block:: 
+
+   >>> Augusta.GRNtoBN(GRN_input, promoter_length, genbank_file_input, add_dbs_info)
+
+
+See https://augusta.readthedocs.io for more details. Example data files are available in the "data" folder.
 
 *Note: run time for C. Beijerinckii example data approximates 2 days.*
