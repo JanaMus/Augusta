@@ -14,7 +14,7 @@ def RNASeq_to_GRN(count_table_input, promoter_length = 1000, genbank_file_input 
          normalized_count_table = count_table
       GRNmi, count_table_differences = RNASeq_to_GRNmi(normalized_count_table)  # GRN inference using MI
       GRNmotifs = GRNmi_to_GRNmotifs(GRNmi, gene_promoters, count_table_differences)  # GRN verification using motif search
-      GRNdb = get_DBs_data(organism, genes_IDs, taxon, GRNmotifs)  # GRN verification using databases
+      GRNdb, genes_IDs_all = get_DBs_data(organism, genes_IDs, taxon, GRNmotifs)  # GRN verification using databases
       if GRNdb is None:
          print('No databases interaction data available; GRN verification skipped.')
          GRNdb = GRNmotifs.copy()
@@ -38,16 +38,19 @@ def GRN_to_BN(GRN_input, promoter_length = 1000, genbank_file_input = None, add_
    if not os.path.exists(output_directory):
       os.makedirs(output_directory)
 
-   if (add_dbs_info == 'yes' or add_dbs_info == 'Yes' or add_dbs_info == 1):
+   if (add_dbs_info == 'yes' or add_dbs_info == 'Yes' or add_dbs_info == 1 or add_dbs_info == 'only_CC'):
       if genbank_file_input:
-         gene_names = GRN_imported.index
-         gene_lengths, gene_promoters, organism, taxon, genes_IDs = genbank_process(genbank_file_input, gene_names, promoter_length)
-         GRNdb = get_DBs_data(organism, genes_IDs, taxon, GRN_imported)
-         if GRNdb is None:
-            print('No databases interaction data available; GRN verification skipped.')
+         if genbank_file_input == 'processed': # file already processed in the function RNASeq_to_GRN
             GRNdb = GRN_imported.copy()
-         export_GRN(GRNdb)
-         GRNcc, CC_conditions = get_CC_data(genes_IDs, GRNdb)  # GRN verification using Cell Colective db
+         else:
+            gene_names = GRN_imported.index
+            gene_lengths, gene_promoters, organism, taxon, genes_IDs = genbank_process(genbank_file_input, gene_names, promoter_length)
+            GRNdb, genes_IDs_all = get_DBs_data(organism, genes_IDs, taxon, GRN_imported)
+            if GRNdb is None:
+               print('No databases interaction data available; GRN verification skipped.')
+               GRNdb = GRN_imported.copy()
+            export_GRN(GRNdb)
+         GRNcc, CC_conditions = get_CC_data(genes_IDs_all, GRNdb)  # GRN verification using Cell Colective db
          GRN_to_SBML(GRNcc, CC_conditions) # GRN to BN
       else:
          print('Databases info add not available - GenBank missing; skipped.')
@@ -58,4 +61,4 @@ def GRN_to_BN(GRN_input, promoter_length = 1000, genbank_file_input = None, add_
 
 def RNASeq_to_SBML(count_table_input, promoter_length=1000, genbank_file_input=None, normalization_type=None):
    GRN = RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type)
-   GRN_to_BN(GRN, promoter_length, genbank_file_input, add_dbs_info=None)
+   GRN_to_BN(GRN, promoter_length, genbank_file_input = 'processed', add_dbs_info='only_CC')
