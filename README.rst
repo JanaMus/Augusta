@@ -3,7 +3,7 @@ Augusta
 
 Python package: From RNA-Seq to the Boolean Network through the Gene Regulatory Network
 
-Documentation and tutorials are available at _´augusta.readthedocs.io <https://augusta.readthedocs.io>´_
+Documentation and tutorials are available at `augusta.readthedocs.io <https://augusta.readthedocs.io>`_
 
 Quick Guide
 ----------------
@@ -44,6 +44,3 @@ BN inference using GRN:
    >>> Augusta.GRNtoBN(GRN_input, promoter_length, genbank_file_input, add_dbs_info)
 
 
-See ´augusta.readthedocs.io <https://augusta.readthedocs.io>´_ for more details. Example data files are available in the "data" folder.
-
-*Note: run time for C. Beijerinckii example data approximates 2 days.*
