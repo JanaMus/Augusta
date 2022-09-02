@@ -24,12 +24,12 @@ import pandas as pd
 from easydev.logging_tools import Logging
 import colormap
 
-from cno.io.measurements import Measurement
-from cno.io import midas_normalisation as normalisation
+from .measurements import Measurement
+from Augusta.cno.io import midas_normalisation as normalisation
 
 
 from easydev import DevTools
-from cno.misc import CNOError
+#from cno.misc import CNOError
 
 
 __all__ = ["XMIDAS", "Trend", 'MIDASReader']
