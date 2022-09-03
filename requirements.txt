@@ -13,3 +13,4 @@ lxml
 html5lib
 networkx==1.11
 ccapi==0.1.0 
+easydev
