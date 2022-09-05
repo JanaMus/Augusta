@@ -4,6 +4,8 @@ Installation
 Augusta is an open-source, OS independent Python 3 package.
 The lines bellow provides through the installation.
 
+Dependencies: docker
+
 from PyPi / pip
 ^^^^^^^^^^^^^^^^
 
