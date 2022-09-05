@@ -12,4 +12,6 @@ bs4
 lxml
 html5lib
 networkx==1.11
+easydev
+colormap
 ccapi==0.1.0 
