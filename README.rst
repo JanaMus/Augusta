@@ -15,6 +15,7 @@ Quick Guide
    $ pip3 install Augusta
 
 Dependencies:
+
 - Python 3, up to 3.8
 - Docker
 
