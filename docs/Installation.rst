@@ -7,7 +7,9 @@ Install dependencies
 Python
 ^^^^^^^^^
 Augusta is an open-source **Python 3 (up to 3.8)** package. 
+
 Python comes preinstalled on most Linux and with OSX distributions. 
+
 On Windows, Python must be installed manually: see `Python´s Documentation <https://docs.python.org/3/using/windows.html>`_.
 
 Python version can be checked via (Augusta works with Python 3, up to 3.8):
