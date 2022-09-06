@@ -1,7 +1,7 @@
 Installation
 ------------
 
-Augusta is an open-source, OS independent **Python 3 (up to 3.8)** package.
+Augusta is an open-source **Python 3 (up to 3.8)** package.
 The lines bellow provides through the installation.
 
 Dependencies: docker
