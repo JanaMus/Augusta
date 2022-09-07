@@ -30,20 +30,21 @@ def gene_synonyms(genes_IDs_input, taxon):
             genes = [gene_key]
         all_IDs = genes
         new_IDs = mg.querymany(genes, scopes='symbol, locus_tag, homologene, alias, accession', fields='symbol, alias', as_dataframe=True, species=taxon)
-        if 'notfound' in new_IDs:
-            new_IDs = new_IDs[new_IDs['notfound'] != True]  # filter searched names
-            new_IDs = new_IDs.drop('notfound', axis=1)
-        if not new_IDs.empty:
-            if '_score' in new_IDs:
-                new_IDs = new_IDs.drop('_score', axis=1)
-            new_IDs_list = sum([new_IDs[i].tolist() for i in new_IDs.columns], [])
-            new_IDs_extracted = []  # unlist listed values
-            for value in new_IDs_list:
-                if isinstance(value, list):
-                    new_IDs_extracted = value + new_IDs_extracted
-                elif isinstance(value, str):
-                    new_IDs_extracted = [value] + new_IDs_extracted
-            all_IDs += new_IDs_extracted
+        if new_IDs is not None:
+            if 'notfound' in new_IDs:
+                new_IDs = new_IDs[new_IDs['notfound'] != True]  # filter searched names
+                new_IDs = new_IDs.drop('notfound', axis=1)
+            if not new_IDs.empty:
+                if '_score' in new_IDs:
+                    new_IDs = new_IDs.drop('_score', axis=1)
+                new_IDs_list = sum([new_IDs[i].tolist() for i in new_IDs.columns], [])
+                new_IDs_extracted = []  # unlist listed values
+                for value in new_IDs_list:
+                    if isinstance(value, list):
+                        new_IDs_extracted = value + new_IDs_extracted
+                    elif isinstance(value, str):
+                        new_IDs_extracted = [value] + new_IDs_extracted
+                all_IDs += new_IDs_extracted
         all_IDs_unique = np.unique(all_IDs).tolist()
         genes_IDs[gene_key] = all_IDs_unique
     return genes_IDs
