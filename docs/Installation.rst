@@ -1,21 +1,18 @@
 Installation
 ------------
 
-Install dependencies
-=====================
+We highly reccoment installing and using Augusta in a virtual environment. 
 
-Python
-^^^^^^^^^
-Augusta is an open-source **Python 3 (up to 3.8)** package. Python comes preinstalled on most Linux and with OSX distributions. 
-On Windows, Python need to be installed: see `Python´s Documentation <https://docs.python.org/3/using/windows.html>`_.
-
-Python version can be checked via (Augusta works with Python 3, up to 3.8):
+Virtual environment can be created and activated using  `conda <https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_:
 
 .. code-block:: 
 
-   > python3
+   > conda create -n venv_Augusta python=3.8 anaconda
+   > conda activate venv_Augusta
    
-See `Python <https://www.python.org/>`_ for more information.
+
+Dependencies
+=====================
 
 Docker
 ^^^^^^^^
@@ -28,6 +25,20 @@ Docker installation can be checked via:
 See  `Docker <https://docs.docker.com/get-docker/>`_ for more information.
 
 
+Python
+^^^^^^^^^
+Python is already installed in the virtual environment venv_Augusta. 
+In case of not using venv_Augusta, **Python 3.7 or 3.8** needs to be installed. 
+
+Python version can be checked via:
+
+.. code-block:: 
+
+   > python3
+   
+See `Python <https://www.python.org/>`_ for more information.
+
+
 Install Augusta
 ==================
 
@@ -36,7 +47,7 @@ from PyPi / pip
 
 .. code-block:: python
 
-   > pip3 install Augusta
+   > pip install Augusta
 
 
 from GitHub
@@ -46,7 +57,7 @@ from GitHub
 
    > git clone https://github.com/JanaMus/Augusta.git
    > cd Augusta
-   > python3 setup.py install
+   > python setup.py install
 
 
 *Linux non-root user:*
