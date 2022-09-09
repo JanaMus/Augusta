@@ -34,7 +34,7 @@ Python version can be checked via:
 
 .. code-block:: 
 
-   > python
+   > python3 --version
    
 See `Python <https://www.python.org/>`_ for more information.
 
