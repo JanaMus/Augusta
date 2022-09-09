@@ -8,41 +8,52 @@ Documentation and tutorials are available at `augusta.readthedocs.io <https://au
 Quick Guide
 ----------------
 
+Dependencies:
+
+- Python 3, versions 3.7 and 3.8
+- Docker
+
 **Installation:**
+
+We highly recomment installing and using Augusta in a virtual environment.
+
+.. code-block::
+   $ conda create -n Augusta_venv python=3.8 anaconda
+   $ conda activate Augusta_venv
 
 .. code-block::
 
-   $ pip3 install Augusta
+   $ pip install Augusta
 
-Dependencies:
-
-- Python 3, up to 3.8
-- Docker
 
 **Usage:**
 
+See _´Inputs<https://augusta.readthedocs.io/en/latest/User%20guide.html>´_ for details about input files and variables.
+
 .. code-block:: 
 
-   $ python3
+   $ python
    >>> import Augusta
    
 GRN and BN inference using RNA-Seq:
 
 .. code-block:: 
 
-   >>> Augusta.RNASeq_to_SBML(count_table_input, promoter_length, genbank_file_input, normalization_type)
+   >>> Augusta.RNASeq_to_SBML(count_table_input = 'MyCT_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', normalization_type = 'My_string')
 
 GRN inference using RNA-Seq:
 
 .. code-block:: 
 
-   >>> GRN = Augusta.RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type)
+   >>> GRN = Augusta.RNASeq_to_GRN(count_table_input = 'MyCT_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', normalization_type = 'My_string')
 
 
 BN inference using GRN:
 
 .. code-block:: 
 
-   >>> Augusta.GRNtoBN(GRN_input, promoter_length, genbank_file_input, add_dbs_info)
+   >>> Augusta.GRNtoBN(GRN_input = 'MyGRN_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', add_dbs_info = 'My_string')
+   
+
 
 
