@@ -3,7 +3,7 @@ Augusta
 
 Python package: From RNA-Seq to the Boolean Network through the Gene Regulatory Network
 
-Documentation and tutorials are available at `augusta.readthedocs.io <https://augusta.readthedocs.io>`_
+Documentation and tutorials are available at `augusta.readthedocs.io <https://augusta.readthedocs.io>`_.
 
 Quick Guide
 ----------------
@@ -18,8 +18,10 @@ Dependencies:
 We highly recomment installing and using Augusta in a virtual environment.
 
 .. code-block::
+
    $ conda create -n Augusta_venv python=3.8 anaconda
    $ conda activate Augusta_venv
+   
 
 .. code-block::
 
@@ -28,7 +30,7 @@ We highly recomment installing and using Augusta in a virtual environment.
 
 **Usage:**
 
-See _´Inputs<https://augusta.readthedocs.io/en/latest/User%20guide.html>´_ for details about input files and variables.
+See `Inputs <https://augusta.readthedocs.io/en/latest/User%20guide.html>`_ for details about input files and variables.
 
 .. code-block:: 
 
