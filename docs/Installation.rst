@@ -28,13 +28,13 @@ See  `Docker <https://docs.docker.com/get-docker/>`_ for more information.
 Python
 ^^^^^^^^^
 Python is already installed in the virtual environment venv_Augusta. 
-In case of not using venv_Augusta, **Python 3.7 or 3.8** needs to be installed. 
+In case of not using venv_Augusta, Augusta package needs **Python version 3.7 or 3.8**. 
 
 Python version can be checked via:
 
 .. code-block:: 
 
-   > python3
+   > python
    
 See `Python <https://www.python.org/>`_ for more information.
 
