@@ -7,7 +7,7 @@ Virtual environment can be created and activated using  `conda <https://conda.io
 
 .. code-block:: 
 
-   > conda create -n venv_Augusta python=3.8 anaconda
+   > conda create -n venv_Augusta python=3.7 anaconda
    > conda activate venv_Augusta
    
 
