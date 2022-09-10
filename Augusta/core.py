@@ -30,6 +30,8 @@ def GRNmi_to_GRNmotifs(GRNmi, gene_promoters, count_table_differences):
         return GRNmi
     else:
         CoeNmotifs = find_motifs(GRNmi, gene_promoters)
+        if os.path.exists('temporary_coreg_seq.fasta'):
+            os.remove('temporary_coreg_seq.fasta')
         if os.path.getsize('output/discovered_motifs.sto') == 0:
             os.remove('output/discovered_motifs.sto')
             print('No motif found; skipped.')
