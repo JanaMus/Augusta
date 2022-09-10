@@ -31,6 +31,10 @@ def find_motifs(initial_GRN, gene_promoters):
             ofile.close()
             # motif discovery using MEME Suite Docker if promoters were exported to the fasta file
             if (os.path.getsize('temporary_coreg_seq.fasta') > 0) & (coreg_seqs > 1): # number of sequences must be 2 at least
+                if not os.path.exists('meme_out'):
+                    os.mkdir('meme_out')
+                os.chmod('meme_out', 0o777)
+                os.chmod('temporary_coreg_seq.fasta', 0o777)
                 client.containers.run('memesuite/memesuite:latest',
                                                   'meme -mod zoops -minw 5  -dna temporary_coreg_seq.fasta',
                                                   volumes={os.getcwd(): {'bind': '/home/meme', 'mode': 'rw'}}, detach=True)
