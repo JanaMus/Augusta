@@ -37,7 +37,7 @@ def find_motifs(initial_GRN, gene_promoters):
                 os.chmod('temporary_coreg_seq.fasta', 0o777)
                 client.containers.run('memesuite/memesuite:latest',
                                                   'meme -mod zoops -minw 5  -dna temporary_coreg_seq.fasta',
-                                                  volumes={os.getcwd(): {'bind': '/home/meme', 'mode': 'rw'}}, detach=True)
+                                                  volumes={os.getcwd(): {'bind': '/home/meme', 'mode': 'rw'}}, detach=True, remove=True)
                 sleep = 0
                 while not os.path.exists('meme_out/meme.xml'):
                     time.sleep(2)
