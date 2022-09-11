@@ -9,7 +9,7 @@ def read_requirements(fname):
 
 setup(
     name='Augusta',
-    version='1.0.2',
+    version='1.0.3',
     packages=find_packages(),
     url='https://github.com/JanaMus/Augusta',
     license='MIT',
