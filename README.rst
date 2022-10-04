@@ -28,7 +28,7 @@ We highly recomment installing and using Augusta in a virtual environment.
    $ pip install Augusta
 
 
-**Usage:**
+**Usage:** 
 
 See `Inputs <https://augusta.readthedocs.io/en/latest/User%20guide.html>`_ for details about input files and variables.
 
