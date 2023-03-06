@@ -83,4 +83,4 @@ def RNASeq_to_SBML(count_table_input, promoter_length=1000, genbank_file_input=N
          print('Count table normalization and databases info add not available - GenBank missing; skipped.')
       GRNmi, count_table_differences = RNASeq_to_GRNmi(count_table)
       export_GRN(GRNmi)
-      GRN_to_SBML(GRN_mi) # GRN to BN
+      GRN_to_SBML(GRNmi) # GRN to BN
