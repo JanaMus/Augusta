@@ -20,15 +20,15 @@ def find_motifs(initial_GRN, gene_promoters):
     for r in range (0, np.shape(initial_GRN)[0]):
         if n_of_reg_genes[r] >= 5: # motif search only if TFs regulates at least 5 genes
             #print(f'Motif: {r+1} / {np.shape(initial_GRN)[0]}')
-            ofile = open('temporary_coreg_seq.fasta', 'w') # promoter sequences
-            prom_no = 1
-            coreg_seqs = 0
-            for c in range(0, np.shape(initial_GRN)[1]): # write individual promoters into temporary_coreg_seq.fasta, filter out promoters shorter than 5
-                if initial_GRN.iloc[r, c] > 0 and len(gene_promoters[c]) >= 5:
-                    ofile.write('>' + str(genes[r]) + '_' + str(prom_no) + '\n' + str(gene_promoters[c]) + '\n')
-                    coreg_seqs += 1
-                    prom_no += 1
-            ofile.close()
+            with open('temporary_coreg_seq.fasta', 'w') as ofile: # promoter sequences
+                prom_no = 1
+                coreg_seqs = 0
+                for c in range(0, np.shape(initial_GRN)[1]): # write individual promoters into temporary_coreg_seq.fasta, filter out promoters shorter than 5
+                    if initial_GRN.iloc[r, c] > 0 and len(gene_promoters[c]) >= 5:
+                        ofile.write('>' + str(genes[r]) + '_' + str(prom_no) + '\n' + str(gene_promoters[c]) + '\n')
+                        coreg_seqs += 1
+                        prom_no += 1
+
             # motif discovery using MEME Suite Docker if promoters were exported to the fasta file
             if (os.path.getsize('temporary_coreg_seq.fasta') > 0) & (coreg_seqs > 1): # number of sequences must be 2 at least
                 if not os.path.exists('meme_out'):
