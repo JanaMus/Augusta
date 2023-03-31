@@ -84,7 +84,7 @@ def find_motifs(initial_GRN, gene_promoters):
                     shutil.rmtree('meme_out')
                 except PermissionError:
                     pass
-            os.remove('temporary_coreg_seq.fasta')
+    os.remove('temporary_coreg_seq.fasta')
     sto_file.close()
     print('Motifs search done.')
     return(verified_GRN)
