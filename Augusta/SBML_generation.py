@@ -10,11 +10,9 @@ def GRN_to_SBML(GRN, CC_conditions = {}):
         neg_values = values.index[values < 0].tolist()
         pos_values = values.index[values > 0].tolist()
         react = str()
-        if len(CC_conditions) > 0: # get conditions if exist for the source and target nodes
-            if (source + '_0') in CC_conditions:
-                source_conditions = get_conditions(source, CC_conditions)
-        try:source_conditions
-        except NameError: source_conditions = []
+        if (len(CC_conditions) > 0) and ((source + '_0') in CC_conditions): # get conditions if exist for the source and target nodes
+            source_conditions = get_conditions(source, CC_conditions)
+        else: source_conditions = []
 
         if (len(neg_values) > 0) and (len(pos_values) > 0):
             for pos_regulator in pos_values:
