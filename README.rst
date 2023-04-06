@@ -47,7 +47,7 @@ GRN inference using RNA-Seq:
 
 .. code-block:: 
 
-   >>> GRN = Augusta.RNASeq_to_GRN(count_table_input = 'MyCT_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', normalization_type = 'My_string')
+   >>> Augusta.RNASeq_to_GRN(count_table_input = 'MyCT_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', normalization_type = 'My_string')
 
 
 BN inference using GRN:
