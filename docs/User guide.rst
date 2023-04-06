@@ -134,7 +134,7 @@ Usage:
 
 .. code-block:: python
 
-   >>> GRN = Augusta.RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type)
+   >>> Augusta.RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type)
 
 *Note: count_table_input is the only indispensable input, the remaining ones are optional.*
 *Not providing GenBank file results in only inferring GRN by computing mutual information. Further steps such as verification and BN inference would be skipped.*
