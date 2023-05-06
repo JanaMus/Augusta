@@ -41,7 +41,7 @@ GRN and BN inference using RNA-Seq:
 
 .. code-block:: 
 
-   >>> Augusta.RNASeq_to_SBML(count_table_input = 'MyCT_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', normalization_type = 'My_string')
+   >>> Augusta.RNASeq_to_BN(count_table_input = 'MyCT_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', normalization_type = 'My_string')
 
 GRN inference using RNA-Seq:
 
