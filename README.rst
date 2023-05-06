@@ -54,7 +54,7 @@ BN inference using GRN:
 
 .. code-block:: 
 
-   >>> Augusta.GRNtoBN(GRN_input = 'MyGRN_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', add_dbs_info = 'My_string')
+   >>> Augusta.GRN_to_BN(GRN_input = 'MyGRN_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', add_dbs_info = 'My_string')
    
 
 
