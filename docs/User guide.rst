@@ -119,7 +119,7 @@ Usage:
 
 .. code-block:: python
 
-   >>> Augusta.RNASeq_to_SBML(count_table_input, promoter_length, genbank_file_input, normalization_type)
+   >>> Augusta.RNASeq_to_BN(count_table_input, promoter_length, genbank_file_input, normalization_type)
 
 
 *Note: count_table_input is the only indispensable input, the remaining ones are optional.*
@@ -148,7 +148,7 @@ Usage:
 
 .. code-block:: python
 
-   >>> Augusta.GRNtoBN(GRN_input, promoter_length, genbank_file_input, add_dbs_info)
+   >>> Augusta.GRN_to_BN(GRN_input, promoter_length, genbank_file_input, add_dbs_info)
 
 
 *Note: GRN_input is the only indispensable input, the remaining ones are optional. Not providing GenBank file and/or not setting add_dbs_info only results in a GRN to BN conversion. Cell Collective database would not be searched.*
