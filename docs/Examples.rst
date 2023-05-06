@@ -166,7 +166,7 @@ Below is provided an example of the main function for generating GRN and BN. See
 
 .. code-block:: python
 
-   >>> Augusta.RNASeq_to_SBML(count_table_input = 'Cbeijerinckii.csv', promoter_length = 1000, genbank_file_input = 'Cbeijerinckii.gb', normalization_type = 'TPM')
+   >>> Augusta.RNASeq_to_BN(count_table_input = 'Cbeijerinckii.csv', promoter_length = 1000, genbank_file_input = 'Cbeijerinckii.gb', normalization_type = 'TPM')
 
    Count table uploaded.
    GenBank uploaded.
