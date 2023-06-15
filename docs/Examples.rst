@@ -1,10 +1,10 @@
 Examples
 ----------
-The example section is divided into two sections.
-In the first on we infer subnetworks using *in silico* dataset with the aim to get familiar with Augusta.
-In the second section we infer networks using real organism´s dataset.
+The example section are divided into two subsections.
+In the first one we infer subnetworks using *in silico* dataset with the aim to get familiar with Augusta.
+In the second section, we infer networks using a real organism´s dataset.
 All input data are available on GitHub in the `"data" directory <https://github.com/JanaMus/Augusta/tree/master/data>`_.
-Furthermore, in each section is tutorial how to download the inputs.
+Furthermore, in each section is a tutorial how to download the inputs.
 
 
 Test data
@@ -20,28 +20,28 @@ Input files
 We will use the file "insilico_size100_1_timeseries.csv" from the
 `DREAM4 challenge. <https://www.synapse.org/#!Synapse:syn3049712/wiki/74628>`_.
 We modified the file for our needs by swapping the matrix so that the genes are in the first column and times in the first row.
-We also rewrote the gene names according to the official gene names of the organism in order to match particular genes with information available in GenBank file.
+We also rewrote the gene names according to the official gene names of the organism in order to match particular genes with information available in the GenBank file.
 The modified file is available on GitHub in the "data" directory as `"Ecoli_DREAM4.csv" <https://github.com/JanaMus/Augusta/blob/master/data/Ecoli_DREAM4.csv>`_.
 
 
 * **GenBank** file
 
-We will use *Escherichia coli* BW25113 available from NCBI Nucleotide database under the accession `CP009273 <https://www.ncbi.nlm.nih.gov/nuccore/CP009273.1/>`_.
+We will use *Escherichia coli* BW25113 available from the NCBI Nucleotide database under the accession `CP009273 <https://www.ncbi.nlm.nih.gov/nuccore/CP009273.1/>`_.
 The GenBank file can be downloaded in the GenBank full format. Otherwise,
 it is also available on GitHub in the "data" directory as `"Ecoli.gb" <https://github.com/JanaMus/Augusta/blob/master/data/Ecoli.gb>`_.
 
 
 Usage example
 """""""""""""
-Below is provided an example of the functions for generating GRN and for converting GRN to BN. See :ref:`Usage` for further available functions.
+Below is provided an example of the functions for generating GRN and converting GRN to BN. See :ref:`Usage` for further available functions.
 
-*Note: input files must be in the current directory or full path must be provided.*
+*Note: input files must be in the current directory or a full path must be provided.*
 
 Generate GRN:
 
 .. code-block:: python
 
-   >>> GRN = Augusta.RNASeq_to_GRN(count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 1000, genbank_file_input = 'Ecoli.gb', normalization_type = 'TPM')[0]
+   >>> GRN = Augusta.RNASeq_to_GRN(count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 1000, genbank_file_input = 'Ecoli.gb', normalization_type = 'TPM', motifs_max_time=180)[0]
 
    Count table uploaded.
    GenBank uploaded.
@@ -82,9 +82,9 @@ Output files
 """""""""""""
 The files are stored in the generated "output" directory.
 
-* transcription motifs
+* motifs
 
- * all motifs discovered in the genome assigned to their transcription factor
+ * all TFBM discovered in the genome assigned to their transcription factor
  * Stockholm file format
  * "discovered_motifs.sto"
  * available on GitHub in the "data/output" directory as `"Ecoli_discovered_motifs.sto" <https://github.com/JanaMus/Augusta/blob/master/data/output/Ecoli_discovered_motifs.sto>`_
@@ -113,7 +113,7 @@ First transcription factor´s motifs in the file (transcription factor is BW2511
 
 * Gene Regulatory Network
 
- * adjancency matrix in CSV file format
+ * adjancency matrix in the CSV file format
  * "GRN.csv"
  * available on GitHub in the "data/output" directory as `"Ecoli_GRN.csv" <https://github.com/JanaMus/Augusta/blob/master/data/output/Ecoli_GRN.csv>`_.
 
@@ -126,7 +126,7 @@ GRN visualized in `Cytoscape software: <https://cytoscape.org/>`_
 
 * Boolean Network
 
- * network in SBML-qual file format
+ * network in the SBML-qual file format
  * "BN.sbml"
  * available on GitHub in the "data/output" directory as `"Ecoli_BN.sbml" <https://github.com/JanaMus/Augusta/blob/master/data/output/Ecoli_BN.sbml>`_.
 
@@ -162,11 +162,11 @@ Usage example
 """""""""""""
 Below is provided an example of the main function for generating GRN and BN. See :ref:`Usage` for further available functions.
 
-*Note: input files must be in the current directory or full path must be provided.*
+*Note: input files must be in the current directory or a full path must be provided.*
 
 .. code-block:: python
 
-   >>> Augusta.RNASeq_to_BN(count_table_input = 'Cbeijerinckii.csv', promoter_length = 1000, genbank_file_input = 'Cbeijerinckii.gb', normalization_type = 'TPM')
+   >>> Augusta.RNASeq_to_BN(count_table_input = 'Cbeijerinckii.csv', promoter_length = 1000, genbank_file_input = 'Cbeijerinckii.gb', normalization_type = 'TPM', motifs_max_time = 300)
 
    Count table uploaded.
    GenBank uploaded.
@@ -184,7 +184,7 @@ Below is provided an example of the main function for generating GRN and BN. See
    Boolean network stored as "BN.sbml".
 
 
-The computation should be done in approximately two days, depending on the specific machine.
+The computation should be done in several days, depending on the specific machine.
 
 
 Output files
