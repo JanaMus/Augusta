@@ -121,17 +121,17 @@ Import Augusta:
    
 GRN and BN inference using RNA-Seq
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
-`RNASeq_to_SBML` is the main function for inferring both networks using RNA-Seq dataset as an input.
+`RNASeq_to_BN` is the main function for inferring both networks (GRN and BN) using RNA-Seq dataset as an input.
 
 Usage:
 
 .. code-block:: python
 
-   >>> Augusta.RNASeq_to_BN(count_table_input, promoter_length, genbank_file_input, normalization_type)
+   >>> Augusta.RNASeq_to_BN(count_table_input, promoter_length, genbank_file_input, normalization_type, motifs_max_time)
 
 
 *Note: count_table_input is the only indispensable input, the remaining ones are optional.*
-*Not providing GenBank file results in only inferring GRN by computing mutual information. Further steps such as verification and BN inference would be skipped.*
+*Not providing GenBank file results in only inferring GRN by computing mutual information. Further steps such as count table normalization, GRN validation (TFBM and DBs search), and Cell Collective DB search would be skipped.*
 
 
 GRN inference using RNA-Seq
@@ -142,10 +142,10 @@ Usage:
 
 .. code-block:: python
 
-   >>> Augusta.RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type)
+   >>> Augusta.RNASeq_to_GRN(count_table_input, promoter_length, genbank_file_input, normalization_type, motifs_max_time)
 
 *Note: count_table_input is the only indispensable input, the remaining ones are optional.*
-*Not providing GenBank file results in only inferring GRN by computing mutual information. Further steps such as verification and BN inference would be skipped.*
+*Not providing GenBank file results in only inferring GRN by computing mutual information. Further steps such as count table normalization, GRN validation (TFBM and DBs search) would be skipped.*
 
 
 BN inference using GRN
@@ -159,28 +159,30 @@ Usage:
    >>> Augusta.GRN_to_BN(GRN_input, promoter_length, genbank_file_input, add_dbs_info)
 
 
-*Note: GRN_input is the only indispensable input, the remaining ones are optional. Not providing GenBank file and/or not setting add_dbs_info only results in a GRN to BN conversion. Cell Collective database would not be searched.*
+*Note: GRN_input is the only indispensable input, the remaining ones are optional. Not providing GenBank file and/or not setting add_dbs_info only results in a GRN to BN conversion. CC DB would not be searched.*
 
 
 
 Outputs
 ^^^^^^^^
 All output files are stored in generated "output" directory.
-During motif search is moreover generated temporary file "temporary_coreg_seq.fasta" which is deleted at the end of the verification process.
+During motif search, the temporary file "temporary_coreg_seq.fasta" is generated and deleted at the end of the verification process.
 
 * Gene Regulatory Network
 
  * adjancency matrix in CSV file format
+ * rows: TFs (trascription factors / regulators), cols: TGs (target / regulated genes)
  * "GRN.csv"
 
 * Boolean Network
 
  * SBML-qual file format
  * "BN.sbml"
+ * *Note: GRN is primarily converted to the temporary file "BN.txt". If memory is sufficient, the "BN.txt" is converted to "BN.sbml". Otherwise, "BN.txt" is the final output.*
 
-* transcription motifs
+* motifs
 
- * all motifs discovered in the genome assigned to their transcription factor
+ * all TFBM discovered in the genome assigned to their transcription factor
  * Stockholm file format
  * "discovered_motifs.sto"
 
