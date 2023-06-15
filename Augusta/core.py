@@ -1,13 +1,11 @@
-import pandas as pd
-import numpy as np
-import sys, os
+from pandas import DataFrame, concat
+from numpy import where, sum
+import sys
+from os import path, remove, devnull
 
-from .data_import import import_CountTable, genbank_process, import_GRN
 from .GRN_MI import GRNmi_infer, preprocessing
-from .RNASeq_normalization import normalize_CountTable
 from .motif_discovery import find_motifs
 from .DBs import DBs_search, DBs_filter, CC_search_filter, get_synonyms
-from .SBML_generation import GRN_to_SBML
 from .data_export import export_interactions, export_GRN
 
 
@@ -17,23 +15,23 @@ def RNASeq_to_GRNmi(count_table):
     gene_names = count_table.index
     count_table_differences, highest_difference = GRNmi_infer.preprocess(count_table)
     MI_matrix = GRNmi_infer.calc_MI(count_table, highest_difference)
-    CoeN_np = np.where(MI_matrix > 0, 1, MI_matrix).astype(int)
-    CoeN = pd.DataFrame(CoeN_np, columns=gene_names, index=gene_names)
+    CoeN_np = where(MI_matrix > 0, 1, MI_matrix).astype(dtype='int8')
+    CoeN = DataFrame(CoeN_np, columns=gene_names, index=gene_names, dtype='int8')
     GRNmi = preprocessing.find_interaction_type(CoeN, count_table_differences)
     return GRNmi, count_table_differences
 
 # verify GRN using motif search
-def GRNmi_to_GRNmotifs(GRNmi, gene_promoters, count_table_differences):
-    n_of_reg_genes = np.sum(GRNmi > 0)
-    if np.sum(n_of_reg_genes >= 5) == 0:  # if no TF regulates at least 5 genes, motif search is not possible
+def GRNmi_to_GRNmotifs(GRNmi, gene_promoters, count_table_differences, motifs_max_time):
+    n_of_reg_genes = sum(GRNmi > 0)
+    if sum(n_of_reg_genes >= 5) == 0:  # if no TF regulates at least 5 genes, motif search is not possible
         print('Motif search not available; skipped.')
         return GRNmi
     else:
-        CoeNmotifs = find_motifs(GRNmi, gene_promoters)
-        if os.path.exists('temporary_coreg_seq.fasta'):
-            os.remove('temporary_coreg_seq.fasta')
-        if os.path.getsize('output/discovered_motifs.sto') == 0:
-            os.remove('output/discovered_motifs.sto')
+        CoeNmotifs = find_motifs(GRNmi, gene_promoters, motifs_max_time)
+        if path.exists('temporary_coreg_seq.fasta'):
+            remove('temporary_coreg_seq.fasta')
+        if path.getsize('output/discovered_motifs.sto') == 0:
+            remove('output/discovered_motifs.sto')
             print('No motif found; skipped.')
             return GRNmi
         elif sum(CoeNmotifs.sum(axis=1)) == 0:
@@ -49,7 +47,7 @@ def get_DBs_data(organism, genes_IDs_gb, taxon, GRN = None):
     print('Synonym organism names search...')
     organism_all_names = get_synonyms.organism_synonyms(organism)
     print('Synonym genes names search...')
-    sys.stdout = open(os.devnull, 'w')  # block print
+    sys.stdout = open(devnull, 'w')  # block print
     genes_IDs_all = get_synonyms.gene_synonyms(genes_IDs_gb, taxon)
     sys.stdout = sys.__stdout__  # enable print
     print('Synonym names search done.')
@@ -60,7 +58,7 @@ def get_DBs_data(organism, genes_IDs_gb, taxon, GRN = None):
     sl_interactions = DBs_search.search_SignaLink(taxon)
     trrust_interactions = DBs_search.search_TRRUST(organism_all_names)
     try:
-        allDBs_interactions = pd.concat([signor_interactions, op_interactions, sl_interactions, trrust_interactions])
+        allDBs_interactions = concat([signor_interactions, op_interactions, sl_interactions, trrust_interactions])
     except ValueError:
         print('No data searched in interaction databases.')
         return GRN, genes_IDs_all
