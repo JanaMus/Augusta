@@ -1,64 +1,87 @@
 from .cno.io import cnograph
-import numpy as np
+from numpy import all
+from os import remove
+from gc import collect
 
-### convert GRN to Boolean netwok in SBML-qual file format
+### convert GRN to BN in SBML-qual file format
 def GRN_to_SBML(GRN, CC_conditions = {}):
-    c = cnograph.CNOGraph()
+    lonely_nodes = GRN_to_BNequations(GRN, CC_conditions)
+    try:
+        c_sbml = BNequations_to_SBML('output/BN.txt')
+    except MemoryError:
+        print('Low memory for exporting BN to SBML-qual. BN is saved in a form of logical equations as "BN.txt".')
+        return
+    else:
+        SBML_to_file(c_sbml, lonely_nodes)
+        remove('output/BN.txt')
+
+### convert GRN to Boolean netwok in logical equations
+def GRN_to_BNequations(GRN, CC_conditions):
     lonely_nodes = []
-    for source in GRN.columns: # get column name
-        values = GRN[source] # get column values
-        neg_values = values.index[values < 0].tolist()
-        pos_values = values.index[values > 0].tolist()
-        react = str()
-        if (len(CC_conditions) > 0) and ((source + '_0') in CC_conditions): # get conditions if exist for the source and target nodes
-            source_conditions = get_conditions(source, CC_conditions)
-        else: source_conditions = []
+    with open('output/BN.txt', 'w') as BN_file:  # motif sequences in Stockholm format
+        for source in GRN.columns: # get column name
+            neg_values = GRN[source].index[GRN[source] < 0].tolist() # extract negative regulators
+            pos_values = GRN[source].index[GRN[source] > 0].tolist() # extract positive regulators
+            react = str()
+            if (len(CC_conditions) > 0) and ((source + '_0') in CC_conditions): # get conditions if exist for the source and target nodes
+                source_conditions = get_conditions(source, CC_conditions)
+            else: source_conditions = []
 
-        if (len(neg_values) > 0) and (len(pos_values) > 0):
-            for pos_regulator in pos_values:
-                pos_regulator_number = 0
-                more_pos_regulator_conditions = True
-                while more_pos_regulator_conditions == True:
-                    add_pos_regulator, more_pos_regulator_conditions, pos_regulator_number = search_condition(pos_regulator, pos_regulator_number, source_conditions)
-                    if len(react) > 0:
-                        react = react + '+'
-                    react = react + add_pos_regulator
-                    for neg_regulator in neg_values:
-                        neg_regulator_number = 0
-                        more_neg_regulator_conditions = True
-                        while more_neg_regulator_conditions == True:
-                            add_neg_regulator, more_neg_regulator_conditions, neg_regulator_number = search_condition(neg_regulator, neg_regulator_number, source_conditions)
-                            react = react + '^!' + add_neg_regulator
+            if (len(neg_values) > 0) and (len(pos_values) > 0):
+                for pos_regulator in pos_values:
+                    pos_regulator_number = 0
+                    more_pos_regulator_conditions = True
+                    while more_pos_regulator_conditions == True:
+                        add_pos_regulator, more_pos_regulator_conditions, pos_regulator_number = search_condition(pos_regulator, pos_regulator_number, source_conditions)
+                        if len(react) > 0:
+                            react = react + '+'
+                        react = react + add_pos_regulator
+                        for neg_regulator in neg_values:
+                            neg_regulator_number = 0
+                            more_neg_regulator_conditions = True
+                            while more_neg_regulator_conditions == True:
+                                add_neg_regulator, more_neg_regulator_conditions, neg_regulator_number = search_condition(neg_regulator, neg_regulator_number, source_conditions)
+                                react = react + '^!' + add_neg_regulator
 
-        elif (len(neg_values) > 0) and (len(pos_values) == 0):
-            for neg_regulator in neg_values:
-                neg_regulator_number = 0
-                more_neg_regulator_conditions = True
-                while more_neg_regulator_conditions == True:
-                    add_neg_regulator, more_neg_regulator_conditions, neg_regulator_number = search_condition(neg_regulator, neg_regulator_number, source_conditions)
-                    if len(react) > 0:
-                        react = react + '^'
-                    react = react + '!' + add_neg_regulator
+            elif (len(neg_values) > 0) and (len(pos_values) == 0):
+                for neg_regulator in neg_values:
+                    neg_regulator_number = 0
+                    more_neg_regulator_conditions = True
+                    while more_neg_regulator_conditions == True:
+                        add_neg_regulator, more_neg_regulator_conditions, neg_regulator_number = search_condition(neg_regulator, neg_regulator_number, source_conditions)
+                        if len(react) > 0:
+                            react = react + '^'
+                        react = react + '!' + add_neg_regulator
 
-        elif (len(neg_values) == 0) and (len(pos_values) > 0):
-            for pos_regulator in pos_values:
-                pos_regulator_number = 0
-                more_pos_regulator_conditions = True
-                while more_pos_regulator_conditions == True:
-                    add_pos_regulator, more_pos_regulator_conditions, pos_regulator_number = search_condition(pos_regulator, pos_regulator_number, source_conditions)
-                    if len(react) > 0:
-                        react = react + '+'
-                    react = react + add_pos_regulator
+            elif (len(neg_values) == 0) and (len(pos_values) > 0):
+                for pos_regulator in pos_values:
+                    pos_regulator_number = 0
+                    more_pos_regulator_conditions = True
+                    while more_pos_regulator_conditions == True:
+                        add_pos_regulator, more_pos_regulator_conditions, pos_regulator_number = search_condition(pos_regulator, pos_regulator_number, source_conditions)
+                        if len(react) > 0:
+                            react = react + '+'
+                        react = react + add_pos_regulator
 
-        if len(react) > 0:
-            react = react + '=' + source
-            c.add_reaction(react)
+            if len(react) > 0:
+                react = react + '=' + source
+                BN_file.write(react + '\n')
+            elif all((GRN.loc[source]) == 0): # check for nodes without edges
+                lonely_nodes.append(source)
+            collect()
+    return lonely_nodes
 
-        elif np.all((GRN.loc[source]) == 0): # check for nodes without edges
-            lonely_nodes.append(source)
+### convert Boolean netwok in logical equations into BN is SBML-qual file format
+def BNequations_to_SBML(filename):
+    c = cnograph.CNOGraph() # generate SBML-qual object
+    with open(filename) as file:
+        for line in file:
+            c.add_reaction(line)
     c_sbml = c.to_sbmlqual()
+    return c_sbml
 
-    # write sbml file; add nodes without edges
+### write SBML-qual file; add nodes without edges (lonely nodes)
+def SBML_to_file(c_sbml, lonely_nodes):
     with open('output/BN.sbml','w') as f_out:
         for line_no, line in enumerate(c_sbml.split("\n")):
             f_out.write(line + "\n")
@@ -66,7 +89,6 @@ def GRN_to_SBML(GRN, CC_conditions = {}):
                 for lonely_node in lonely_nodes:
                     f_out.write("""<qual:qualitativeSpecies qual:constant="false" qual:compartment="main" qual:id="{0}"/>\n""".format(lonely_node))
     print('Boolean network stored as "BN.sbml".')
-
 
 # add reaction´s equation in case conditions are available
 def get_conditions(source, CC_conditions):
@@ -110,9 +132,8 @@ def get_conditions_parameters(condition_value, condition_react, condition):
         condition_react = condition_react + '^!' + condition
     return condition_react
 
-
 def search_condition(regulator, regulator_number, source_conditions):
-    if (regulator + '_' + str(regulator_number)) in source_conditions:  # add conditions
+    if (str(regulator) + '_' + str(regulator_number)) in source_conditions:  # add conditions
         add_regulator = source_conditions[regulator + '_' + str(regulator_number)]
         regulator_number += 1
         more_regulator_conditions = True
