@@ -60,11 +60,19 @@ Below is the list of all input files and parameters. See section :ref:`Usage` fo
 
  * *promoter_length*
  * optional, default: 1000 bp
+ * The length of a sequence in which a TFBM (transcription factor binding motif) is searched. E.g. promoter_length=1000 means that the sequence 1000 bp upstream of a gene is taken.
+
+
+* **promoter length** parameter
+
+ * *motifs_max_time*
+ * optional, default: 180 s
+ * Maximum time in seconds to search TFBM for individual TF using MEME Suite. The recommended time by MEME Suite is 180 seconds, but it may take longer for large genomes. If the search is terminated due to timeout, a message will be displayed and the parameter should be extended.
 
 * **Gene Regulatory Network** file
 
  * *GRN_input*
- * Adjacency matrix NxN; N = genes
+ * Adjacency matrix NxN; N = number of genes; TF = transcription factor (regulator); TG = target (regulated) gene
  * CSV file format
  * examples: Table 2 or `"data" directory <https://github.com/JanaMus/Augusta/tree/master/data>`_ on GitHub
 
@@ -75,18 +83,18 @@ Below is the list of all input files and parameters. See section :ref:`Usage` fo
    :align: center
 
    * -
-     - Gene 1
-     - Gene 2
-     - Gene 3
-   * - Gene 1
+     - TF 1
+     - TF 2
+     - TF 3
+   * - TG 1
      - 0
      - 1
      - -1
-   * - Gene 2
+   * - TG 2
      - 1
      - 0
      - 0
-   * - Gene 3
+   * - TG 3
      - 1
      - -1
      - 0
