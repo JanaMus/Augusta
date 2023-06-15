@@ -1,6 +1,6 @@
 from EcoNameTranslator import to_common, synonyms
-import numpy as np
-import mygene
+from numpy import unique
+from mygene import MyGeneInfo
 
 ### translate scientific organism name into common name
 def organism_synonyms(organism):
@@ -22,14 +22,17 @@ def organism_synonyms(organism):
 ### get gene name synonyms
 def gene_synonyms(genes_IDs_input, taxon):
     genes_IDs = genes_IDs_input.copy()
-    mg = mygene.MyGeneInfo()
+    mg = MyGeneInfo()
     for gene_key in genes_IDs_input:
         if genes_IDs_input[gene_key]:
             genes = [gene_key] + genes_IDs_input[gene_key]
         else:
             genes = [gene_key]
         all_IDs = genes
-        new_IDs = mg.querymany(genes, scopes='symbol, locus_tag, homologene, alias, accession', fields='symbol, alias', as_dataframe=True, species=taxon)
+        try:
+            new_IDs = mg.querymany(genes, scopes='symbol, locus_tag, homologene, alias, accession', fields='symbol, alias', as_dataframe=True, species=taxon)
+        except:
+            new_IDs = None
         if new_IDs is not None:
             if 'notfound' in new_IDs:
                 new_IDs = new_IDs[new_IDs['notfound'] != True]  # filter searched names
@@ -45,6 +48,6 @@ def gene_synonyms(genes_IDs_input, taxon):
                     elif isinstance(value, str):
                         new_IDs_extracted = [value] + new_IDs_extracted
                 all_IDs += new_IDs_extracted
-        all_IDs_unique = np.unique(all_IDs).tolist()
+        all_IDs_unique = unique(all_IDs).tolist()
         genes_IDs[gene_key] = all_IDs_unique
     return genes_IDs
