@@ -1,4 +1,4 @@
-import ccapi
+from ccapi import Client
 import logging
 
 ### get interactions and logical rules from Cell Collective (CC) database
@@ -7,14 +7,14 @@ def CC_search(organism_all_names):
     try:
         logging.disable(logging.INFO) # disable print log info messages
         logging.disable(logging.WARNING)
-        client = ccapi.Client()
+        client = Client()
         fetch_models = client.get('model', size = 1000, filters = {'modelTypes': ['boolean']})
         logging.disable(logging.NOTSET)
     except:
         print('Cell Collective database not available; skipped.')
         return models
 
-    # filter CC data based on input organism
+    # filter CC models based on input organism
     pos = 0
     while pos < len(fetch_models):
         one_model = fetch_models[pos]
@@ -28,7 +28,7 @@ def CC_search(organism_all_names):
     print('Cell Collective database search done.')
     return models
 
-### filter CC data based on input organism
+### filter CC data based on input organism´s genes
 def CC_filter(genes_IDs_all, GRN, models):
     GRN_CC = GRN.copy()
     global genes_IDs_all_values
