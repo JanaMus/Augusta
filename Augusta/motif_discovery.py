@@ -45,7 +45,7 @@ def find_motifs(initial_GRN, gene_promoters, motifs_max_time):
                 sleep_count = 0
                 while client.containers.list(filters={'name':str(gene_name)}): # check if MEME Suite is still running
                     if sleep_count > motifs_max_time:  # skip current motif search as meme suite container has not finished in a long time
-                        print("Motif search killed for TF: ", str(gene_name), " (time limit exceeded).")
+                        print("Motif search terminated for TF: ", str(gene_name), " (time limit exceeded).")
                         try:
                             container.stop(timeout=5)
                         except: # container already finished or removal already in progress
