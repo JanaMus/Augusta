@@ -4,7 +4,7 @@ from os import path, mkdir, chmod, getcwd, remove
 from shutil import rmtree
 from docker import from_env
 from Bio import motifs
-from time import sleep, time  ###smazat , time (from time import sleep NECHAT)
+from time import sleep
 from gc import collect
 
 ### search for motifs in promoter sequences of coregulated genes; search for discovered motifs in all promoter sequences
