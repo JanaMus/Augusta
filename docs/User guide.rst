@@ -63,7 +63,7 @@ Below is the list of all input files and parameters. See section :ref:`Usage` fo
  * The length of a sequence in which a TFBM (transcription factor binding motif) is searched. E.g. promoter_length=1000 means that the sequence 1000 bp upstream of a gene is taken.
 
 
-* **promoter length** parameter
+* **maximum time for a TFMB search** parameter
 
  * *motifs_max_time*
  * optional, default: 180 s
