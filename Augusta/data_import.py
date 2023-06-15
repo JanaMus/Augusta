@@ -1,17 +1,17 @@
-import pandas as pd
-import numpy as np
+from pandas import read_table
+from numpy import shape
 from Bio import SeqIO
 
 ### import count table (RNA-Seq) data: matrix MxN (M = gene locus tag / name; N = time)
 def import_CountTable(count_table):
-    input_matrix = pd.read_table(count_table, index_col=[0], sep = None, engine = 'python')
-    if (np.shape(input_matrix)[1]) < 3:
+    input_matrix = read_table(count_table, index_col=[0], sep = None, engine = 'python')
+    if (shape(input_matrix)[1]) < 3:
         print('Expression data error: Not enough time points included. Provide at least 3 time points.')
         return
-    elif (np.shape(input_matrix)[0]) < 2:
+    elif (shape(input_matrix)[0]) < 2:
         print ('Expression data error: Not enough genes included. Provide at least 2 genes.')
         return
-    elif (len(input_matrix.columns) != np.shape(input_matrix)[1]) or (len(input_matrix.index) != np.shape(input_matrix)[0]):
+    elif (len(input_matrix.columns) != shape(input_matrix)[1]) or (len(input_matrix.index) != shape(input_matrix)[0]):
         print('Expression data error: Provide names of rows and columns.')
         return
     else:
@@ -21,7 +21,7 @@ def import_CountTable(count_table):
 
 ### import GenBank file
 def genbank_process(gb_file, gene_names, promoter_length):
-    gene_lengths = [0] * np.shape(gene_names)[0]
+    gene_lengths = [0] * shape(gene_names)[0]
     gene_promoters = []
     qualifier = find_qualifier(gb_file, gene_names)
 
@@ -29,7 +29,7 @@ def genbank_process(gb_file, gene_names, promoter_length):
         sequence = record.seq
         indexes = index_genbank_features(record, 'gene', qualifier)
         genes_IDs = dict.fromkeys(gene_names)
-        for i in range(0, np.shape(gene_names)[0]):
+        for i in range(0, shape(gene_names)[0]):
             # get gene promoter
             try:
                 feature = record.features[indexes[gene_names[i]]]
@@ -125,6 +125,6 @@ def index_genbank_features(gb_record, feature_type, qualifier):
 
 ### import gene regulatory network
 def import_GRN(input_GRN):
-    GRN = pd.read_table(input_GRN, index_col=[0], sep=None, engine='python') # import table with unknown separator
+    GRN = read_table(input_GRN, index_col=[0], sep=None, engine='python') # import table with unknown separator
     print('GRN uploaded.')
     return GRN
