@@ -150,7 +150,7 @@ Usage:
 
 BN inference using GRN
 """""""""""""""""""""""
-`GRN_toBN` is the function for inferring the Boolean Network (BN) using the Gene Regulatory Network (GRN) file as an input.
+`GRN_to_BN` is the function for inferring the Boolean Network (BN) using the Gene Regulatory Network (GRN) file as an input.
 
 Usage:
 
