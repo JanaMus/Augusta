@@ -134,7 +134,7 @@ Input files
 
 * **count table** file
 
-We will use the file we processed from the RNA-Seq dataset (available from the NCBI Sequence Read Archive (SRA) under the accession `SRP033480 <https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP033480>`_; replicates B1 - B6). We generated and normalized the count table by R´s Rsubread DESeq2 libraries.
+We will use the file we processed from the RNA-Seq dataset (available from the NCBI Sequence Read Archive (SRA) under the accession `SRP033480 <https://trace.ncbi.nlm.nih.gov/Traces/index.html?view=study&acc=SRP033480>`_; replicates B1 - B6). We generated and normalized the count table by R´s Rsubread and DESeq2 libraries.
 The processed count table is available on GitHub in the "data" directory as `"Cbeijerinckii.csv" <https://github.com/JanaMus/Augusta/blob/master/data/Cbeijerinckii.csv>`_.
 
 
