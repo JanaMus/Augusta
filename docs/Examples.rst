@@ -92,10 +92,10 @@ First transcription factor´s motifs in the file (transcription factor is BW2511
 
 .. code-block:: python
 
-# STOCKHOLM 1.0
-#=GF ID   BW25113_0564
-BW25113_0564_0	TTCTCCCCATCCTCCCAGGCATTACGCAACGTGAAACTCCAGGGATTTG
-//
+   # STOCKHOLM 1.0
+   #=GF ID   BW25113_0564
+   BW25113_0564_0	TTCTCCCCATCCTCCCAGGCATTACGCAACGTGAAACTCCAGGGATTTG
+   //
 
 
 * Gene Regulatory Network
@@ -125,9 +125,9 @@ BN (selected genes) visualized in `Cell Collective platform: <https://research.c
 
 
 
-Real data
+Whole-genome dataset
 ^^^^^^^^^^^^
-Real data are made by dataset of *Clostridium beijerinckii* NRL B-598 bacterium whole genome.
+The dataset consists of *Clostridium beijerinckii* NRL B-598 bacterium whole genome.
 
 Input files
 """""""""""""
