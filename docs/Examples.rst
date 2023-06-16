@@ -157,7 +157,6 @@ Below is provided an example of the main function for generating GRN and BN. See
 
    Count table uploaded.
    GenBank uploaded.
-   Count table normalization done.
    Mutual information computation...
    Mutual information computation done.
    Motifs search...
