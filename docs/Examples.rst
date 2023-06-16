@@ -1,6 +1,6 @@
 Examples
 ----------
-The example section are divided into two subsections.
+The example section is divided into two subsections.
 In the first one we infer subnetworks using *in silico* dataset with the aim to get familiar with Augusta.
 In the second section, we infer networks using a real organism´s dataset.
 All input data are available on GitHub in the `"data" directory <https://github.com/JanaMus/Augusta/tree/master/data>`_.
