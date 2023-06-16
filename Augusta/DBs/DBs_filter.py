@@ -56,7 +56,7 @@ def fill_GRN(GRN, names, DBs_interactions_GRNGeneMatches):
 ### infer GRN from databases intractions
 def DBsInteractions_to_GRN(DBs_interactions_GRNGeneMatches):
     DB_GRN_names = np.unique(DBs_interactions_GRNGeneMatches[['source_GeneID', 'target_GeneID']].values)
-    DBsGRN_np = np.zeros((len(DB_GRN_names), len(DB_GRN_names)), dtype=int)
-    DBsGRN = pd.DataFrame(DBsGRN_np, columns=DB_GRN_names, index=DB_GRN_names)
+    DBsGRN_np = np.zeros((len(DB_GRN_names), len(DB_GRN_names)), dtype='int8')
+    DBsGRN = pd.DataFrame(DBsGRN_np, columns=DB_GRN_names, index=DB_GRN_names, dtype='int8')
     DBsGRN_filled = fill_GRN(DBsGRN, DB_GRN_names, DBs_interactions_GRNGeneMatches)
     return DBsGRN_filled
