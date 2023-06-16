@@ -125,7 +125,7 @@ BN (selected genes) visualized in `Cell Collective platform: <https://research.c
 
 
 
-Whole-genome dataset
+Whole-genome data
 ^^^^^^^^^^^^
 The dataset consists of *Clostridium beijerinckii* NRL B-598 bacterium whole genome.
 
