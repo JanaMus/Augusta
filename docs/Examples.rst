@@ -65,7 +65,6 @@ Convert generated GRN to BN:
 
    >>> Augusta.GRN_to_BN(GRN_input = GRN, promoter_length = 1000, genbank_file_input = 'Ecoli.gb', add_dbs_info = 1)
 
-   GRN uploaded.
    GenBank uploaded.
    Synonym organism names search...
    Synonym genes names search...
@@ -89,26 +88,14 @@ The files are stored in the generated "output" directory.
  * "discovered_motifs.sto"
  * available on GitHub in the "data/output" directory as `"Ecoli_discovered_motifs.sto" <https://github.com/JanaMus/Augusta/blob/master/data/output/Ecoli_discovered_motifs.sto>`_
 
-First transcription factor´s motifs in the file (transcription factor is BW25113_0564; discovered motifs are in the second column):
+First transcription factor´s motifs in the file (transcription factor is BW25113_0564; discovered motif sequence is in the second column):
 
 .. code-block:: python
 
-   # STOCKHOLM 1.0
-   #=GF ID   BW25113_0564
-   BW25113_0995_10	CCCGCCAGC
-   BW25113_0995_5	GCGGCACGC
-   BW25113_0995_9	CCCGCCATC
-   BW25113_0995_7	CCAGCCCTC
-   BW25113_0995_4	GCGGCAGGC
-   BW25113_0995_11	CCGGGGAGC
-   BW25113_0995_12	GGAGCACAC
-   BW25113_0995_13	CGGGTCCAC
-   BW25113_0995_3	TCCGTGCGC
-   BW25113_0995_2	GGAGTGCGC
-   BW25113_0995_6	TGGGCCAGG
-   BW25113_0995_1	TAAGCAAGC
-   BW25113_0995_8	GGCTGAAAC
-   //
+# STOCKHOLM 1.0
+#=GF ID   BW25113_0564
+BW25113_0564_0	TTCTCCCCATCCTCCCAGGCATTACGCAACGTGAAACTCCAGGGATTTG
+//
 
 
 * Gene Regulatory Network
