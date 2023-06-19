@@ -189,4 +189,4 @@ During motif search, the temporary file "temporary_coreg_seq.fasta" is generated
 * genes interactions
 
  * all interactions searched across databases stored as "DBs_interactions_list.csv"
- * uncertain interactions stored as "DBs_interactions_uncertain.csv" (i.e. the same gene pair has different interaction type in different DBs)
+ * uncertain interactions stored as "DBs_interactions_uncertain.csv" (i.e. the same gene pair has both positive and negative interaction types in different DBs). *The edge type with more references is incorporated into the network. In case the number of references is equal, no information is taken from the database.*
