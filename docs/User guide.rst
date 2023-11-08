@@ -83,18 +83,18 @@ Below is the list of all input files and parameters. See section :ref:`Usage` fo
    :align: center
 
    * -
-     - TF 1
-     - TF 2
-     - TF 3
-   * - TG 1
+     - TG 1
+     - TG 2
+     - TG 3
+   * - TF 1
      - 0
      - 1
      - -1
-   * - TG 2
+   * - TF 2
      - 1
      - 0
      - 0
-   * - TG 3
+   * - TF 3
      - 1
      - -1
      - 0
