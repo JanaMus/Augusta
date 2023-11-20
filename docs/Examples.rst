@@ -100,7 +100,7 @@ First transcription factor´s motifs in the file (transcription factor is BW2511
 
 * Gene Regulatory Network
 
- * adjancency matrix in the CSV file format
+ * adjacency matrix in the CSV file format
  * "GRN.csv"
  * available on GitHub in the "data/output" directory as `"Ecoli_GRN.csv" <https://github.com/JanaMus/Augusta/blob/master/data/output/Ecoli_GRN.csv>`_.
 
