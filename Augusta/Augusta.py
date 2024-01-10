@@ -68,3 +68,6 @@ def RNASeq_to_BN(count_table_input, promoter_length=1000, genbank_file_input=Non
       GRN_to_SBML(GRNcc, CC_conditions)  # GRN to BN
    else:
       GRN_to_SBML(GRN)  # GRN to BN
+
+def refineGRN(count_table_input, promoter_length=1000, genbank_file_input=None, normalization_type=None, motifs_max_time = 180):
+   print('neco tu bude')
