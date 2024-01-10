@@ -69,5 +69,22 @@ def RNASeq_to_BN(count_table_input, promoter_length=1000, genbank_file_input=Non
    else:
       GRN_to_SBML(GRN)  # GRN to BN
 
-def refineGRN(count_table_input, promoter_length=1000, genbank_file_input=None, motifs_max_time = 180):
-   print('neco tu bude, smazany 1 input')
+def refineGRN(GRN_input, genbank_file_input, promoter_length=1000, motifs_max_time = 180):
+   try:
+      GRN_imported = import_GRN(GRN_input).astype(dtype='int8') # GRN input from file
+   except TypeError:
+      GRN_imported = GRN_input.copy() # GRN input from variable
+   output_directory = path.join(getcwd(), r'output') # data export
+   if not path.exists(output_directory):
+      makedirs(output_directory)
+   gene_names = GRN_imported.index
+   gene_lengths, gene_promoters, organism, taxon, genes_IDs = genbank_process(genbank_file_input, gene_names, promoter_length)
+
+   GRNmotifs = GRNmi_to_GRNmotifs(GRN_imported, gene_promoters, count_table_differences, motifs_max_time)  # GRN verification using motif search
+   GRNdb, genes_IDs_all = get_DBs_data(organism, genes_IDs, taxon, GRNmotifs)  # GRN verification using databases
+   if GRNdb is None:
+      print('No databases interaction data available; GRN verification skipped.')
+      GRNdb = GRNmotifs.copy()
+   export_GRN(GRNdb)
+   return GRNdb
+
