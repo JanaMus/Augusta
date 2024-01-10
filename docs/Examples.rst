@@ -81,7 +81,7 @@ Refine GRN:
 
 .. code-block:: python
 
-   >>> refined_GRN = Augusta.refineGRN(GRN_input = GRN, genbank_file_input = 'Ecoli.gb', promoter_length = 1000, motifs_max_time=180)
+   >>> refined_GRN = Augusta.refineGRN(GRN_input = GRN, genbank_file_input = 'Ecoli.gb', count_table_input = 'Ecoli_DREAM4.csv', promoter_length = 1000, motifs_max_time=180)
 
    GenBank uploaded.
    Motifs search...
