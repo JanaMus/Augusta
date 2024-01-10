@@ -77,6 +77,25 @@ Convert generated GRN to BN:
 
 The computation should be done in several minutes, depending on the specific machine.
 
+Refine GRN:
+
+.. code-block:: python
+
+   >>> refined_GRN = Augusta.refineGRN(GRN_input = GRN, genbank_file_input = 'Ecoli.gb', promoter_length = 1000, motifs_max_time=180)
+
+   GenBank uploaded.
+   Motifs search...
+   Motifs search done.
+   Synonym organism names search...
+   Synonym genes names search...
+   Synonym names search done.
+   No data searched in interaction databases.
+   Refined GRN stored as "refined_GRN.csv".
+
+
+The computation should be done in several minutes, depending on the specific machine.
+
+
 Output files
 """""""""""""
 The files are stored in the generated "output" directory.
