@@ -170,10 +170,10 @@ Usage:
 
 .. code-block:: python
 
-   >>> Augusta.refineGRN(GRN_input, genbank_file_input, promoter_length, motifs_max_time)
+   >>> Augusta.refineGRN(GRN_input, genbank_file_input, count_table_input, promoter_length, motifs_max_time)
 
 
-*Note: GRN_input and genbank_file_input are indispensable inputs, the remaining ones are optional.*
+*Note: GRN_input, genbank_file_input, and count_table_input are indispensable inputs, the remaining ones are optional.*
 
 
 
