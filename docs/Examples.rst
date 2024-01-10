@@ -147,7 +147,7 @@ it is also available on GitHub in the "data" directory as `"Cbeijerinckii.gb" <h
 
 Usage example
 """""""""""""
-Below is provided an example of the main function for generating GRN and BN. See :ref:`Usage` for further available functions.
+Below is provided an example of the main function for generating a GRN and a BN. See :ref:`Usage` for further available functions.
 
 *Note: input files must be in the current directory or a full path must be provided.*
 
