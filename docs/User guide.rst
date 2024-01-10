@@ -50,7 +50,7 @@ Below is the list of all input files and parameters. See section :ref:`Usage` fo
 * **GenBank** file
 
  * *genbank_file_input*
- * optional but several parts are skipped if not provided
+ * optional (except refineGRN function) but several parts are skipped if not provided
  * Gene names in the count table must match locus tags (i.e. "locus_tag") or names (i.e. "name") in the GenBank file!
  * required format: GenBank full (i.e. containing nucleotide sequence in the ORIGIN section)
  * examples: `"data" directory <https://github.com/JanaMus/Augusta/tree/master/data>`_ on GitHub or :ref:`Examples`)
@@ -136,7 +136,7 @@ Usage:
 
 GRN inference using RNA-Seq
 """"""""""""""""""""""""""""
-`RNASeq_to_GRN` is the function for inferring only the Gene Regulatory Network using RNA-Seq dataset as an input.
+`RNASeq_to_GRN` is the function for inferring only a Gene Regulatory Network using RNA-Seq dataset as an input.
 
 Usage:
 
@@ -150,7 +150,7 @@ Usage:
 
 BN inference using GRN
 """""""""""""""""""""""
-`GRN_to_BN` is the function for inferring the Boolean Network (BN) using the Gene Regulatory Network (GRN) file as an input.
+`GRN_to_BN` is the function for inferring a Boolean Network (BN) using a Gene Regulatory Network (GRN) file as an input.
 
 Usage:
 
@@ -160,6 +160,20 @@ Usage:
 
 
 *Note: GRN_input is the only indispensable input, the remaining ones are optional. Not providing GenBank file and/or not setting add_dbs_info only results in a GRN to BN conversion. CC DB would not be searched.*
+
+
+GRN refinement
+"""""""""""""""""""""""
+`refineGRN` is the function for refining already inferred Gene Regulatory Network (GRN).
+
+Usage:
+
+.. code-block:: python
+
+   >>> Augusta.refineGRN(GRN_input, genbank_file_input, promoter_length, motifs_max_time)
+
+
+*Note: GRN_input and genbank_file_input are indispensable inputs, the remaining ones are optional.*
 
 
 
