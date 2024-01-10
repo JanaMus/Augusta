@@ -55,6 +55,13 @@ BN inference using GRN:
 .. code-block:: 
 
    >>> Augusta.GRN_to_BN(GRN_input = 'MyGRN_file.csv', promoter_length = My_number, genbank_file_input = 'MyGB_file.gb', add_dbs_info = 'My_string')
+
+
+GRN refinement:
+
+.. code-block:: 
+
+   >>> Augusta.refineGRN(GRN_input = 'MyGRN_file.csv', genbank_file_input = 'MyGB_file.gb', promoter_length = My_number, motifs_max_time = My_seconds)
    
 
 
