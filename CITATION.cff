@@ -1,0 +1,31 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Augusta
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Jana
+    family-names: Musilova
+    email: musilovaj22@gmail.com
+    orcid: 'https://orcid.org/0000-0001-6910-6047'
+  - given-names: Zdenek
+    family-names: Vafek
+  - given-names: Karel
+    family-names: Sedlar
+repository-code: 'https://github.com/JanaMus/Augusta'
+repository: 'https://augusta.readthedocs.io'
+abstract: >-
+  Python package: From RNA-Seq to the Boolean Network
+  through the Gene Regulatory Network.
+keywords:
+  - biological network
+  - Python
+  - package
+  - GRN
+  - BN
+  - RNA-Seq
+license: MIT
