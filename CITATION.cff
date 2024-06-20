@@ -12,10 +12,13 @@ authors:
     family-names: Musilova
     email: musilovaj22@gmail.com
     orcid: 'https://orcid.org/0000-0001-6910-6047'
+    role: contributor
   - given-names: Zdenek
     family-names: Vafek
+    role: contributor
   - given-names: Karel
     family-names: Sedlar
+    role: contributor
 repository-code: 'https://github.com/JanaMus/Augusta'
 repository: 'https://augusta.readthedocs.io'
 abstract: >-
