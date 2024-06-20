@@ -62,6 +62,13 @@ GRN refinement:
 .. code-block:: 
 
    >>> Augusta.refineGRN(GRN_input = 'MyGRN_file.csv', genbank_file_input = 'MyGB_file.gb', count_table_input = 'MyCT_file.csv', promoter_length = My_number, motifs_max_time = My_seconds)
+
+
+Contributors
+----------------
+- Jana Musilova 
+- Zdenek Vafek
+- Karel Sedlar
    
 
 
