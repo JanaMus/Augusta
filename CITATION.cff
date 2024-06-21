@@ -18,6 +18,7 @@ authors:
     role: contributor
   - given-names: Karel
     family-names: Sedlar
+    orcid: 'https://orcid.org/0000-0002-8269-4020'
     role: contributor
 repository-code: 'https://github.com/JanaMus/Augusta'
 repository: 'https://augusta.readthedocs.io'
