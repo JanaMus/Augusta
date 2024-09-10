@@ -23,11 +23,13 @@ ensuring that inaccurate information is not incorporated.
 .. image:: _static/Pipeline.png
   :alt: Augusta pipeline
 
+
 Credits
 ----------------
 The Augusta project is based on research detailed in the following paper. Please cite this paper when using or referencing our work:
 
 Augusta: From RNA‐Seq to gene regulatory networks and Boolean models. Jana Musilova, Zdenek Vafek, Bhanwar Lal Puniya, Ralf Zimmer, Tomas Helikar, and Karel Sedlar. *Computational and Structural Biotechnology Journal*, 2024. DOI: `10.1016/j.csbj.2024.01.013 <https://doi.org/10.1016/j.csbj.2024.01.013>`_.
+
 
 Contributors
 ----------------
