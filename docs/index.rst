@@ -20,7 +20,7 @@ Information from the databases is only used if the data matches the organism und
 ensuring that inaccurate information is not incorporated.
 
 
-.. image:: _static/pipeline.png
+.. image:: _static/Pipeline.png
   :alt: Augusta pipeline
 
 Credits
