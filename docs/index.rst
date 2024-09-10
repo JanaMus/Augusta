@@ -31,9 +31,9 @@ Augusta: From RNA‐Seq to gene regulatory networks and Boolean models. Jana Mus
 
 Contributors
 ----------------
-- Jana Musilova 
+- Jana Musilova, musilovaj22@gmail.com
 - Zdenek Vafek
-- Karel Sedlar
+- Karel Sedlar, sedlar@vut.cz
 
 
 Contents
