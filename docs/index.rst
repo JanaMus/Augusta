@@ -23,7 +23,6 @@ ensuring that inaccurate information is not incorporated.
 .. image:: _static/pipeline.png
   :alt: Augusta pipeline
 
-
 Credits
 ----------------
 The Augusta project is based on research detailed in the following paper. Please cite this paper when using or referencing our work:
