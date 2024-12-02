@@ -57,7 +57,7 @@
         "Python 3.7 and Python 3.8",
         "https://github.com/JanaMus/Augusta/blob/master/requirements.txt"
     ],
-    "version": "1.0.5",
+    "version": "1.0.6",
     "issueTracker": "https://github.com/JanaMus/Augusta/issues",
     "referencePublication": "https://doi.org/10.1016/j.csbj.2024.01.013"
 }
