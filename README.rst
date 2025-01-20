@@ -19,6 +19,12 @@ Contributors
 - Karel Sedlar, sedlar@vut.cz
 
 
+News
+----------------
+Augusta is FAIR!
+
+We are excited to announce that Augusta has undergone a successful FAIRification process. This process was part of the FAIR-IMPACT workshop, which aims to ensure that research software is Findable, Accessible, Interoperable, and Reusable (FAIR). You can read more about our FAIRification journey and how it enhances Augusta’s usability and collaboration potential in the FAIR-IMPACT Implementation Story: `FAIRification of Augusta, Research Software for Gene Regulatory Networks and Boolean Models Inference | FAIR-IMPACT <https://fair-impact.eu/implementation-adoption-stories/fairification-augusta-research-software-gene-regulatory-networks>`_.
+
 Quick Guide
 ----------------
 
