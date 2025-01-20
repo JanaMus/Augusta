@@ -5,6 +5,15 @@ Python package: From RNA-Seq to the Boolean Network through the Gene Regulatory 
 
 Documentation and tutorials are available at `augusta.readthedocs.io <https://augusta.readthedocs.io>`_.
 
+
+News
+----------------
+Augusta is FAIR!
+
+We are excited to announce that Augusta has undergone a successful FAIRification process. This process was part of the FAIR-IMPACT workshop, which aims to ensure that research software is Findable, Accessible, Interoperable, and Reusable (FAIR). You can read more about our FAIRification journey and how it enhances Augusta’s usability and collaboration potential in the FAIR-IMPACT Implementation Story: `FAIRification of Augusta, Research Software for Gene Regulatory Networks and Boolean Models Inference | FAIR-IMPACT <https://fair-impact.eu/implementation-adoption-stories/fairification-augusta-research-software-gene-regulatory-networks>`_.
+
+
+
 Credits
 ----------------
 The Augusta project is based on research detailed in the following paper. Please cite this paper when using or referencing our work:
@@ -19,11 +28,6 @@ Contributors
 - Karel Sedlar, sedlar@vut.cz
 
 
-News
-----------------
-Augusta is FAIR!
-
-We are excited to announce that Augusta has undergone a successful FAIRification process. This process was part of the FAIR-IMPACT workshop, which aims to ensure that research software is Findable, Accessible, Interoperable, and Reusable (FAIR). You can read more about our FAIRification journey and how it enhances Augusta’s usability and collaboration potential in the FAIR-IMPACT Implementation Story: `FAIRification of Augusta, Research Software for Gene Regulatory Networks and Boolean Models Inference | FAIR-IMPACT <https://fair-impact.eu/implementation-adoption-stories/fairification-augusta-research-software-gene-regulatory-networks>`_.
 
 Quick Guide
 ----------------
