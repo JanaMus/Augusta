@@ -54,7 +54,7 @@
         "https://augusta.readthedocs.io/"
     ],
     "softwareRequirements": [
-        "Python 3.8",
+        "Python 3.7 or Python 3.8",
         "https://github.com/JanaMus/Augusta/blob/master/requirements.txt"
     ],
     "version": "1.0.6",
