@@ -7,7 +7,7 @@ Virtual environment can be created and activated using  `conda <https://conda.io
 
 .. code-block:: 
 
-   > conda create -n venv_Augusta python=3.7 anaconda
+   > conda create -n venv_Augusta python=3.8 anaconda
    > conda activate venv_Augusta
    
 
@@ -28,7 +28,7 @@ See  `Docker <https://docs.docker.com/get-docker/>`_ for more information.
 Python
 ^^^^^^^^^
 Python is already installed in the virtual environment venv_Augusta. 
-In case of not using venv_Augusta, Augusta package needs **Python version 3.7 or 3.8**. 
+In case of not using venv_Augusta, Augusta package needs **Python version 3.8**. 
 
 Python version can be checked via:
 
