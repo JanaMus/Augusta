@@ -6,7 +6,7 @@ Bio<=1.79
 docker
 EcoNameTranslator
 mygene
-omnipath
+omnipath<1.0.8
 urllib3>=1.26.0
 requests>=2.24.0
 bs4
