@@ -34,7 +34,7 @@ Quick Guide
 
 Dependencies:
 
-- Python 3, versions 3.7 and 3.8
+- Python 3.8
 - Docker
 
 **Installation:**
@@ -43,7 +43,7 @@ We highly recomment installing and using Augusta in a virtual environment.
 
 .. code-block::
 
-   $ conda create -n Augusta_venv python=3.7 anaconda
+   $ conda create -n Augusta_venv python=3.8 anaconda
    $ conda activate Augusta_venv
    
 
